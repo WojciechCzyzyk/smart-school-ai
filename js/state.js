@@ -22,7 +22,7 @@ const AppState = {
         this.threats = [];
         this.logs = [];
         this.latestPopupThreat = null;
-        this.selectedNfcStudentId = this.students.length > 0 ? this.students.id : null;
+        this.selectedNfcStudentId = this.students.length > 0 ? this.students[0].id : null;
         this.addLog('SYSTEM', 'Załadowano pulę startową uczniów (Tryb Demo).');
         this.notify();
     },
