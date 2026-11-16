@@ -12,10 +12,10 @@ const TelemetryAiModule = {
     },
 
     // Sprawdzenie, czy ostatnie zdarzenie wymaga powiadomienia e-mail dla rodzica
-    checkForParentNotification(state) {
-        if (state.logs.length === 0) return;
-        const latestLog = state.logs;
-        if (latestLog.timestamp === this.lastCheckedLogTimestamp) return;
+        checkForParentNotification(state) {
+         if (state.logs.length === 0) return;
+          const latestLog = state.logs[0];
+         if (latestLog.timestamp === this.lastCheckedLogTimestamp) return;
         this.lastCheckedLogTimestamp = latestLog.timestamp;
 
         // Szukamy ucznia powiązanego z wybranym lub ostatnio skanowanym ID, który ma wpisany e-mail
