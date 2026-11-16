@@ -1,24 +1,11 @@
 // Główny punkt uruchomieniowy kokpitu Smart School AI
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Inicjalizacja modułów
+    // 1. Inicjalizacja wszystkich modułów systemu
     ZonesModule.init();
     DeskNfcModule.init();
+    TelemetryAiModule.init();
 
-    // 2. Podpięcie podstawowego widoku strumienia logów (pełny moduł w Sprincie 4)
-    AppState.subscribe((state) => {
-        const logContainer = document.getElementById('telemetry-log');
-        if (logContainer) {
-            if (state.logs.length === 0) {
-                logContainer.innerHTML = '<p class="muted-info">Brak zarejestrowanych zdarzeń.</p>';
-            } else {
-                logContainer.innerHTML = state.logs
-                    .map(entry => `<div><strong>[${entry.timestamp}]</strong> [${entry.type}] ${entry.message}</div>`)
-                    .join('');
-            }
-        }
-    });
-
-    // 3. Przyciski sterujące pulą uczniów w nagłówku
+    // 2. Przyciski sterujące pulą uczniów w nagłówku
     const btnReset = document.getElementById('btn-reset-demo');
     if (btnReset) {
         btnReset.addEventListener('click', () => AppState.loadDemoData());
@@ -29,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnClear.addEventListener('click', () => AppState.clearAllData());
     }
 
-    // 4. Szybki formularz dodawania nowego ucznia
+    // 3. Szybki formularz dodawania nowego ucznia
     const quickForm = document.getElementById('quick-add-form');
     if (quickForm) {
         quickForm.addEventListener('submit', (e) => {
@@ -53,6 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Załadowanie puli startowej na otwarcie aplikacji
+    // 4. Załadowanie puli startowej na otwarcie aplikacji
     AppState.loadDemoData();
 });
