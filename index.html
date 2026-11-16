@@ -6,6 +6,7 @@
     <title>Smart School AI | Kokpit Bezpieczeństwa i Świetlicy (SP nr 2)</title>
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/zones.css">
+    <link rel="stylesheet" href="css/alerts.css">
 </head>
 <body>
     <!-- NAGŁÓWEK KOKPITU -->
@@ -25,7 +26,7 @@
 
         <!-- PAS 1 (GÓRA): ALERTY, BIURKO NFC I DODAWANIE UCZNIÓW -->
         <section class="top-panel-row">
-            <!-- Panel Zagrożeń (Slot pod Sprint 2) -->
+            <!-- Panel Zagrożeń -->
             <div id="threat-panel" class="panel-box threat-ok">
                 <div class="panel-header">
                     <h2>🛡️ Panel Zagrożeń i Bezpieczeństwa</h2>
@@ -36,7 +37,7 @@
                 </div>
             </div>
 
-            <!-- Biurko Świetlicy NFC i Szybkie Dodawanie (Slot pod Sprint 2) -->
+            <!-- Biurko Świetlicy NFC i Szybkie Dodawanie -->
             <div id="nfc-desk-panel" class="panel-box">
                 <div class="panel-header">
                     <h2>💳 Biurko Świetlicy (NFC 13,56 MHz) &amp; Dodawanie</h2>
@@ -53,9 +54,7 @@
                         <input type="email" id="student-email" placeholder="E-mail rodzica (opcjonalnie)">
                         <button type="submit" class="btn btn-primary">+ Dodaj</button>
                     </form>
-                    <div id="nfc-desk-actions" class="nfc-slot-placeholder">
-                        Stanowisko NFC: gotowe na podpięcie modułu w Sprincie 2.
-                    </div>
+                    <div id="nfc-desk-actions"></div>
                 </div>
             </div>
         </section>
@@ -64,39 +63,47 @@
         <section class="zones-section">
             <div class="section-title-row">
                 <h2>🏫 Mapa Stref Szkoły (Bramki UHF RFID 865–868 MHz — Przeciągnij ucznia między strefami)</h2>
-                <span class="hint-text">Chwyć kafelek ucznia myszką i upuść w wybranej sali</span>
+                <span class="hint-text">Kliknij kafelek ucznia, aby wybrać go przy biurku NFC, lub przeciągnij do innej sali</span>
             </div>
-            <div id="zones-container" class="zones-grid">
-                <!-- Strefy wyrenderuje automatycznie js/zones_dnd.js -->
-            </div>
+            <div id="zones-container" class="zones-grid"></div>
         </section>
 
-        <!-- PAS 3 (DÓŁ): TELEMETRIA NA ŻYWO I RAPORT AI (Slot pod Sprint 4) -->
+        <!-- PAS 3 (DÓŁ): TELEMETRIA NA ŻYWO I RAPORT AI -->
         <section class="bottom-panel-row">
             <div class="panel-box">
                 <div class="panel-header">
                     <h2>📡 Strumień Zdarzeń RFID / NFC (Live Telemetry)</h2>
                 </div>
-                <div id="telemetry-log" class="panel-body log-feed">
-                    <p class="muted-info">Oczekiwanie na inicjalizację modułu danych...</p>
-                </div>
+                <div id="telemetry-log" class="panel-body log-feed"></div>
             </div>
             <div class="panel-box">
                 <div class="panel-header">
                     <h2>🤖 Asystent AI Dyrekcji &amp; Powiadomienia Rodziców</h2>
                 </div>
                 <div id="ai-report-box" class="panel-body">
-                    <p class="muted-info">Moduł analizy AI i powiadomień e-mail gotowy do podpięcia.</p>
+                    <p class="muted-info">Moduł analizy AI i powiadomień e-mail gotowy do podpięcia w Sprincie 4.</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- SKRYPTY MODUŁOWE (Podpinane kolejno w Sprintach 1.2 i 1.3) -->
+    <!-- WYSKAKUJĄCE OKNO ALERTU BEZPIECZEŃSTWA -->
+    <div id="alert-modal" class="alert-modal-overlay">
+        <div class="alert-modal-card">
+            <h3>🚨 ALARM BEZPIECZEŃSTWA!</h3>
+            <p id="alert-modal-text"></p>
+            <button class="btn btn-resolve" style="font-size: 0.95rem; padding: 0.6rem 1.2rem;" onclick="AppState.dismissPopupThreat()">
+                Przyjąłem zgłoszenie (Zamknij alert)
+            </button>
+        </div>
+    </div>
+
+    <!-- SKRYPTY MODUŁOWE -->
     <script src="js/config.js"></script>
     <script src="js/state.js"></script>
     <script src="js/zones_dnd.js"></script>
+    <script src="js/desk_nfc.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
