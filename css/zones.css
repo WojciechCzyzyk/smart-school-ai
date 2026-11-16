@@ -1,0 +1,162 @@
+/* SEKCJA 5 STREF SZKOŁY */
+.zones-section {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+}
+
+.section-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.section-title-row h2 {
+    font-size: 0.98rem;
+}
+
+.hint-text {
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+}
+
+.zones-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.8rem;
+    min-height: 310px;
+}
+
+/* OKNO POJEDYNCZEJ STREFY */
+.zone-column {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.zone-column.zone-danger-border {
+    border-color: rgba(248, 81, 73, 0.45);
+}
+
+.zone-column.drag-over {
+    border-color: var(--accent-blue);
+    background-color: rgba(88, 166, 255, 0.08);
+}
+
+.zone-header {
+    background-color: var(--bg-card);
+    padding: 0.55rem 0.7rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.zone-header h3 {
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.zone-count {
+    background: var(--bg-main);
+    color: var(--text-muted);
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.zone-dropzone {
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    flex: 1;
+}
+
+/* KAFELEK UCZNIA */
+.student-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-blue);
+    border-radius: 6px;
+    padding: 0.5rem 0.6rem;
+    cursor: grab;
+    transition: transform 0.1s ease, box-shadow 0.15s ease;
+    user-select: none;
+}
+
+.student-card:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+.student-card:active {
+    cursor: grabbing;
+}
+
+.student-card.daycare-active {
+    border-left-color: var(--accent-green);
+}
+
+.student-card.alert-state {
+    border-left-color: var(--accent-red);
+    background: rgba(248, 81, 73, 0.14);
+}
+
+.student-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+
+.student-name {
+    font-weight: 700;
+    font-size: 0.86rem;
+}
+
+.rfid-tag-id {
+    font-family: 'Consolas', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.student-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.mini-badge {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.badge-daycare {
+    background: rgba(63, 185, 80, 0.18);
+    color: var(--accent-green);
+}
+
+.badge-regular {
+    background: rgba(139, 148, 158, 0.18);
+    color: var(--text-muted);
+}
+
+.badge-lock {
+    background: rgba(210, 153, 34, 0.2);
+    color: var(--accent-yellow);
+}
+
+.badge-free {
+    background: rgba(88, 166, 255, 0.18);
+    color: var(--accent-blue);
+}
