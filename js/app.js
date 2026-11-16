@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Inicjalizacja modułów
     ZonesModule.init();
+    DeskNfcModule.init();
 
     // 2. Podpięcie podstawowego widoku strumienia logów (pełny moduł w Sprincie 4)
     AppState.subscribe((state) => {
