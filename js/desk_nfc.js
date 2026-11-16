@@ -79,7 +79,7 @@ const DeskNfcModule = {
             return;
         }
 
-        const selected = AppState.students.find(s => s.id === AppState.selectedNfcStudentId) || AppState.students;
+        const selected = AppState.students.find(s => s.id === AppState.selectedNfcStudentId) || AppState.students[0];
         const optionsHtml = AppState.students.map(s =>
             `<option value="${s.id}" ${s.id === selected.id ? 'selected' : ''}>${s.name} [${s.tagId}]</option>`
         ).join('');
