@@ -220,3 +220,47 @@ body {
     font-family: 'Consolas', monospace;
     font-size: 0.8rem;
 }
+
+/* STOPKA KOKPITU */
+.cockpit-footer {
+    background-color: var(--bg-panel);
+    border-top: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.footer-left strong {
+    color: var(--text-main);
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.cockpit-footer a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cockpit-footer a:hover {
+    color: var(--accent-green);
+    text-decoration: underline;
+}
+
