@@ -101,7 +101,9 @@ const DeskNfcModule = {
                     <button class="btn btn-nfc-in" onclick="AppState.approveDaycareCheckIn('${selected.id}')">✔ Zatwierdź przyjęcie</button>
                     <button class="btn btn-nfc-out" onclick="AppState.approveDaycareCheckOut('${selected.id}')">👋 Zatwierdź wyjście (NFC)</button>
                     <button class="btn btn-nfc-remote" onclick="AppState.remoteReleaseFromDaycare('${selected.id}')">🔓 Zwolnij zdalnie</button>
+                    <button class="btn btn-tts" onclick="TtsAudioModule.announceStudent('${selected.id}')">🔊 Wywołaj głosowo</button>
                 </div>
+
             </div>
         `;
 
