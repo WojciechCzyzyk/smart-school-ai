@@ -118,6 +118,9 @@ const AppState = {
             this.threats.unshift(threatEntry);
             this.latestPopupThreat = threatEntry;
             this.addLog('ALARM', `🚨 KRYTYCZNY ALERT: ${student.name} opuścił szkołę bez zatwierdzenia!`);
+            if (typeof TtsAudioModule !== 'undefined') {
+                TtsAudioModule.playAlarm();
+            }
         }
 
         this.notify();
